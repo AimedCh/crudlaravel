@@ -33,6 +33,14 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('clientes.index') }}">{{ _('clientes') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('facturas.index') }}">{{ _('facturas') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('proveedores.index') }}">{{ _('proveedores') }}</a>
+                            </li>
+                           
+                             
                     </ul>
 
                     <!-- Right Side Of Navbar -->

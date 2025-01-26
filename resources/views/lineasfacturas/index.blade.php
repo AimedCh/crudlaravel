@@ -53,14 +53,14 @@
                         </td>
                         <td>
                             <a href="{{ url('/clientes/' . $cliente->id) }}" 
-                               class="btn btn-primary me-2">
+                               class="btn btn-primary">
                                 Mostrar
                             </a>
 
-                            <a href="{{ url('/facturas/cliente/' . $cliente->id) }}" class="btn btn-warning me-2">Facturas</a>
+                            <a href="{{ url('/facturas/cliente/' . $cliente->id) }}" class="btn btn-warning">Facturas</a>
 
                             <a href="{{ url('/clientes/' . $cliente->id . '/edit') }}" 
-                               class="btn btn-success me-2">
+                               class="btn btn-success">
                                 Editar
                             </a>
 
@@ -70,7 +70,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" 
-                                        class="btn btn-danger me-2" 
+                                        class="btn btn-danger" 
                                         onclick="return confirm('¿Quiere borrar el cliente?')">
                                     Borrar
                                 </button>

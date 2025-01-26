@@ -21,7 +21,7 @@ class ClientesController extends Controller
         ->where('nombre', 'LIKE', '%' . $buscar . '%')
         ->orWhere('email', 'LIKE', '%' . $buscar . '%')
         ->orderBy('nombre', 'asc')
-        ->paginate(2);
+        ->paginate(1);
         
         return view('clientes.index', compact('clientes', 'buscar'));
 
@@ -49,8 +49,9 @@ class ClientesController extends Controller
             'nombre' => 'required| string | max:64' ,
             'direccion' => 'required| string |max:64',
             'email' => 'required | email |max:100',
-            'telefono' => 'required | max :11',
-            'logo' => 'required| max: 50000| mimes : jpg, jpeg, png'];
+            'telefono' => 'required | max :11'];
+            
+            //'logo' => 'required| max: 5000000| mimes : jpg, jpeg, png'];
             $mensajes = [
             'required' => 'El :attribute es requerido. ',
             'direccion.required' => 'La :attribute es requerida. '
