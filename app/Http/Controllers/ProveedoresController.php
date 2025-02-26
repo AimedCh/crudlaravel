@@ -16,15 +16,16 @@ class ProveedoresController extends Controller
      */
    
         //
-        public function index(Request $request)
-{
+
+    public function index(Request $request)
+    {
     $buscar = trim($request->get('buscar'));
     $proveedores = DB::table('proveedores')
         ->select('*')
         ->where('nombre', 'LIKE', '%' . $buscar . '%')
         ->orWhere('email', 'LIKE', '%' . $buscar . '%')
         ->orderBy('nombre', 'asc')
-        ->paginate(1);
+        ->paginate(4);
         
     return view('proveedores.index', compact('proveedores', 'buscar'));
 }
@@ -106,11 +107,7 @@ class ProveedoresController extends Controller
     {
         //
         $datos = Proveedores :: findOrFail($id);
-        
-        
         Proveedores:: destroy($id);
-
-        
         return redirect('proveedores')->with('mensaje','Proveedores borrado.');
     }
 }

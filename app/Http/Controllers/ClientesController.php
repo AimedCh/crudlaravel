@@ -21,7 +21,7 @@ class ClientesController extends Controller
         ->where('nombre', 'LIKE', '%' . $buscar . '%')
         ->orWhere('email', 'LIKE', '%' . $buscar . '%')
         ->orderBy('nombre', 'asc')
-        ->paginate(1);
+        ->paginate(20);
         
         return view('clientes.index', compact('clientes', 'buscar'));
 
@@ -44,7 +44,6 @@ class ClientesController extends Controller
     {
         //
         $datos=$request->except('_token');
-
         $campos = [
             'nombre' => 'required| string | max:64' ,
             'direccion' => 'required| string |max:64',
@@ -56,13 +55,9 @@ class ClientesController extends Controller
             'required' => 'El :attribute es requerido. ',
             'direccion.required' => 'La :attribute es requerida. '
         ];
-
             $this->validate($request, $campos, $mensajes);
-
             //$datos = $request->all();
-
             Clientes::insert($datos);
-
         return redirect('clientes')->with('mensaje','Clientes insertado.');
     }
 
@@ -74,8 +69,6 @@ class ClientesController extends Controller
         //
         $cliente=Clientes::findOrFail($id);
         return view('clientes.show', compact('cliente'));
-
-
     }
 
     /**
@@ -93,7 +86,6 @@ class ClientesController extends Controller
      */
     public function update(Request $request,  $id)
     {
-        
         $campos = [
             'nombre' => 'required| string | max:64',
             'direccion' => 'required| string|max:64',

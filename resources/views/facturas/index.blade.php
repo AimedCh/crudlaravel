@@ -31,7 +31,8 @@
                     <tr>
                         <td>{{ $factura->id }}</td>
                         <td>{{ $factura->fecha }}</td>
-                         <td>{{ $factura->base }}</td>
+                        <td>{{ $factura->cliente->nombre ?? 'Sin cliente' }}</td>
+                        <td>{{ $factura->base }}</td>
                         <td>{{ $factura->importeiva }}</td>
                         <td>{{ $factura->importe }}</td>
                         <td>
@@ -39,11 +40,21 @@
                                 Editar
                             </a>
 
+                            <!-- Botón para generar recibos -->
+                            <a href="{{ route('recibos.generar', $factura->id) }}" class="btn btn-primary me-2">
+                                Generar Recibo
+                            </a>
+
+                            <a href="{{ route('verRecibos', ['factura_id' => $factura->id]) }}" class="btn btn-warning me-2">
+                                Ver Recibos
+                            </a>
+                            
+
                             <!-- Formulario para borrar -->
                             <form action="{{ url('/facturas/' . $factura->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn  btn-danger"
+                                <button type="submit" class="btn btn-danger"
                                     onclick="return confirm('¿Quiere borrar la factura seleccionada?')">
                                     Borrar
                                 </button>

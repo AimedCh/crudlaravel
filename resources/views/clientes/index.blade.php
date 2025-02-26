@@ -30,6 +30,7 @@
                 <th>Email</th>
                 <th>Teléfono</th>
                 <th>Logo</th>
+                <th>Forma de pago</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -51,6 +52,8 @@
                                 <span>Sin logo</span>
                             @endif
                         </td>
+                        <td>{{ $cliente->formapago }}</td>
+
                         <td>
                             <a href="{{ url('/clientes/' . $cliente->id) }}" 
                                class="btn btn-primary me-2">

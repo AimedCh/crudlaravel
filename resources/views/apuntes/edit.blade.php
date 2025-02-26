@@ -6,18 +6,18 @@
         <div class="col-md-8">
             <div class="card shadow-sm">
                 <div class="card-header  bg-primary text-white">
-                    <h2 class="mb-0  text-center">Modificar un Cliente</h2>
+                    <h2 class="mb-0  text-center">Modificar un apuntes</h2>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ url('/clientes/' . $cliente->id) }}" 
+                    <form action="{{ url('/apuntes/' . $apunte->id) }}" 
                           method="post" 
                           enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
                         
-                        @include('clientes.form', [
-                            'submit' => 'Modificar cliente',
+                        @include('apuntes.form', [
+                            'submit' => 'Modificar apuntes',
                             'cancel' => 'Cancelar la modificación'
                         ])
                     </form>

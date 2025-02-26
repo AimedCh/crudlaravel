@@ -17,7 +17,7 @@ class FacturasController extends Controller
     public function index()
     {
         //
-        $datos['facturas']=facturas::paginate(1);
+        $datos['facturas']=facturas::paginate(20);
         return view('facturas.index',$datos);
     }
 
@@ -88,6 +88,7 @@ return view('facturas.edit', compact('factura', 'clientes'));
         Facturas:: destroy($id);
         return redirect('facturas')->with('mensaje','facturas borrado.');
     }
+
     public function facturascliente($cliente_id){
         $facturas = DB::table('facturas')
             ->join('clientes', 'facturas.cliente_id', '=', 'clientes.id')

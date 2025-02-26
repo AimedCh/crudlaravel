@@ -11,20 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('clientes', function (Blueprint $table) {
+        Schema::create('cartillas', function (Blueprint $table) {
             $table->id();
-            
-            $table->string('nombre', 64);
+            $table->string('titular',45);
+            $table->string('iban',100);
             $table->string('direccion', 64);
-            $table->string('email', 100);
-            $table->string('telefono', 11);
-            $table->string('logo', 100)->nullable();
-            $table->integer('formapago')->default(1); 
-
-            
-            
+            $table->date('fecha');
+            $table->decimal('saldo',19,2);
             $table->timestamps();
-            });
+        });
     }
 
     /**
@@ -32,6 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('clientes');
+        Schema::dropIfExists('cartillas');
+        //$table->dropColumn(['iban', 'saldo']);
+        
     }
+    //ahora creame otra migracion que es
 };

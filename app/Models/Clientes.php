@@ -8,6 +8,11 @@ class Clientes extends Model
 {
     public function facturas()
     {
-        return $this->belongsto('App\Models\facturas');
+        return $this->hasMany('App\Models\Factura');
+    }
+
+    public function direcciones()
+    {
+        return $this->hasMany('App\Models\Direcciones');
     }
 }

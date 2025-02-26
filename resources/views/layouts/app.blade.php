@@ -39,8 +39,24 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('proveedores.index') }}">{{ _('proveedores') }}</a>
                             </li>
-                           
                              
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('direcciones.index') }}">{{ _('direcciones') }}</a>
+                            </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('cartilla.index') }}">{{ _('cartilla') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('apuntes.index') }}">{{ _('apuntes') }}</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('recibos.index') }}">{{ _('recibos') }}</a>
+                            </li>
+                          
+             
                     </ul>
 
                     <!-- Right Side Of Navbar -->

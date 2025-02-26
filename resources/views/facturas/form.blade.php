@@ -25,6 +25,7 @@
     @enderror
 </div>
 
+
 <div class="form-group">
     <label for="cliente">Cliente</label>
     <select name="cliente_id" 

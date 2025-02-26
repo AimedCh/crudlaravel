@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-Formulario para modificar un cliente
+Formulario para modificar un cartilla
 <br><br>
-<form action="{{ url('/clientes/') }}" method="post">
+<form action="{{ url('/cartilla/') }}" method="post">
 @csrf
-@include('clientes.form',
+@include('cartilla.form',
 [
 'cancel'=>'Cancelar la modificacion',
 'readonly'=>'readonly'])

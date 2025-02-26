@@ -6,8 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class facturas extends Model
 {
-    public function cliente(){
-        return $this->belongsto('App\Models\clientes');
-    }
+    protected $fillable = ['cliente_id','fecha', 'total'];
+    protected $casts = [
+        'fecha' => 'date', 
+    ];
     
+    
+
+    public function cliente()
+    {
+        return $this->belongsTo(clientes::class, 'cliente_id');
+    }
+
+    public function recibos(){
+        return $this->hasMany('App\Models\recibos');
+
+    }
+
+    /*public function lineas(){
+         return $this->hasMany(LineasFacturas::class);
+
+    }*/
 }
