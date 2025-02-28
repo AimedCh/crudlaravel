@@ -19,6 +19,8 @@ Este es un sistema CRUD desarrollado en Laravel, que permite la gestión de:
 - Apuntes
 - Recibos
 
+https://github.com/user-attachments/assets/46702b94-b505-45e4-82d4-f70b8db42891
+
 ## Instalación
 
 1. Clonar el repositorio:
