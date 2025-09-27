@@ -1,15 +1,20 @@
 @extends('layouts.app')
+
 @section('content')
 <div class="container">
-Formulario para modificar un proveedores
-<br><br>
-<form action="{{ url('/proveedores/') }}" method="post">
-@csrf
-@include('proveedores.form',
-[
-'cancel'=>'Cancelar la modificacion',
-'readonly'=>'readonly'])
-</form>
+    <div class="unified-card">
+        <div class="unified-header">
+            <i class="fas fa-eye"></i> Ver Proveedor
+        </div>
 
+        <div class="unified-body">
+            <form action="{{ route('admin.proveedores.index') }}" method="get">
+                @include('proveedores.form', [
+                    'cancel' => 'Volver a la Lista',
+                    'readonly' => 'readonly'
+                ])
+            </form>
+        </div>
+    </div>
 </div>
 @endsection

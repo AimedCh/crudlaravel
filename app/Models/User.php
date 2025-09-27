@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -43,6 +46,29 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_active' => 'boolean',
         ];
+    }
+
+    // Relationships
+    public function ordenes()
+    {
+        return $this->hasMany(Orden::class);
+    }
+
+    public function reservas()
+    {
+        return $this->hasMany(AlquileresReserva::class);
+    }
+
+    // Scopes
+    public function scopeClientes($query)
+    {
+        return $query->where('role', 'cliente');
+    }
+
+    public function scopeActivos($query)
+    {
+        return $query->where('is_active', true);
     }
 }

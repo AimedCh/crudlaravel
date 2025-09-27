@@ -1,16 +1,24 @@
-@extends ('layouts.app')
+@extends('layouts.app')
+
 @section('content')
-
 <div class="container">
+    <div class="unified-card">
+        <div class="unified-header">
+            <i class="fas fa-plus"></i> Crear Nuevo Proveedor
+        </div>
 
-<h1>Insertar proveedor</h1>
-
-<br><br>
-<form action="{{ url('/proveedores')}}" method="post" enctype="multipart/form-data">
-@csrf
-@include('proveedores.form', ['submit' => 'Añadir Proveedor', 'cancel' => 'Cancelar la inserción'])
-</form>
-
+        <div class="unified-body">
+            <form action="{{ route('admin.proveedores.store') }}" 
+                  method="post" 
+                  enctype="multipart/form-data">
+                @csrf
+                
+                @include('proveedores.form', [
+                    'submit' => 'Crear Proveedor',
+                    'cancel' => 'Cancelar'
+                ])
+            </form>
+        </div>
+    </div>
 </div>
-
 @endsection
